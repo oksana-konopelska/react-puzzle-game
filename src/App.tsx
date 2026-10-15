@@ -17,11 +17,13 @@ function App() {
   const [isVictory, setIsVictory] = useState(false);
 
   useEffect(() => {
-    if (isSolved(board)) {
-      setTimeout(() => {
-        setIsVictory(true);
-      }, 400);
-    }
+    if (!isSolved(board)) return;
+
+    const timeoutId = setTimeout(() => {
+      setIsVictory(true);
+    }, 400);
+
+    return () => clearTimeout(timeoutId);
   }, [board]);
 
   const handleTileClick = (position: PositionType) => {
