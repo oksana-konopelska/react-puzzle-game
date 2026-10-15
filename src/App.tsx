@@ -13,7 +13,7 @@ import Dialog from "./components/dialog/Dialog";
 import { PositionType } from "./shared/types";
 
 function App() {
-  const [board, setBoard] = useState(initiateBoard());
+  const [board, setBoard] = useState(initiateBoard);
   const [isVictory, setIsVictory] = useState(false);
 
   useEffect(() => {
